@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Racing Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<h1>🏎️ Racing Game</h1>
+
+<canvas id="race" width="400" height="500"></canvas>
+
+<h2 id="score">Score: 0</h2>
+
+<script>
+
+let canvas = document.getElementById("race");
+let ctx = canvas.getContext("2d");
+
+let car = {
+x:180,
+y:420,
+width:40,
+height:60
+};
+
+let obstacle = {
+x:Math.random()*360,
+y:-60,
+width:40,
+height:60
+};
+
+let score=0;
+
+document.addEventListener("keydown",function(e){
+
+if(e.key=="ArrowLeft" && car.x>0){
+car.x-=20;
+}
+
+if(e.key=="ArrowRight" && car.x<360){
+car.x+=20;
+}
+
+});
+
+
+function game(){
+
+ctx.clearRect(0,0,400,500);
+
+
+// road
+ctx.fillStyle="gray";
+ctx.fillRect(0,0,400,500);
+
+
+// player car
+ctx.fillStyle="blue";
+ctx.fillRect(car.x,car.y,car.width,car.height);
+
+
+// obstacle car
+ctx.fillStyle="red";
+ctx.fillRect(obstacle.x,obstacle.y,obstacle.width,obstacle.height);
+
+
+obstacle.y+=5;
+
+
+if(obstacle.y>500){
+
+obstacle.y=-60;
+obstacle.x=Math.random()*360;
+
+score++;
+
+document.getElementById("score").innerHTML=
+"Score: "+score;
+
+}
+
+
+// collision
+
+if(
+car.x < obstacle.x+40 &&
+car.x+40 > obstacle.x &&
+car.y < obstacle.y+60 &&
+car.y+60 > obstacle.y
+){
+
+alert("Game Over! Score: "+score);
+location.reload();
+
+}
+
+
+requestAnimationFrame(game);
+
+}
+
+
+game();
+
+</script>
+
+</body>
+</html>
