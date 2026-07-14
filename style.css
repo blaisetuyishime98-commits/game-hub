@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 Game Hub</h1>
+    <p>Play. Enjoy. Win.</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Games</a>
+    <a href="#">About</a>
+</nav>
+
+<section class="games">
+
+    <div class="card">
+        <h2>🐍 Snake Game</h2>
+        <p>Classic snake challenge</p>
+        <button onclick="startGame()">Play Now</button>
+    </div>
+
+    <div class="card">
+        <h2>🧠 Memory Game</h2>
+        <p>Test your memory skills</p>
+        <button>Coming Soon</button>
+    </div>
+
+    <div class="card">
+        <h2>🏎️ Racing Game</h2>
+        <p>Speed and competition</p>
+        <button>Coming Soon</button>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Game Hub | Created by You</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
