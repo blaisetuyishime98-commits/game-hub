@@ -1,12 +1,31 @@
-function startGame(){
-    alert("🎮 Snake Game is starting soon!");
+body{
+font-family:Arial;
+background:#111;
+color:white;
+text-align:center;
+}
 
-    let player = prompt("Enter your gamer name:");
+header{
+padding:40px;
+background:#222;
+}
 
-    if(player){
-        alert("Welcome " + player + "! Good luck 🎯");
-    }
-    else{
-        alert("Welcome Gamer! 🎮");
-    }
+.games{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:40px;
+}
+
+.card{
+background:#333;
+padding:30px;
+border-radius:15px;
+}
+
+button{
+padding:10px 25px;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
