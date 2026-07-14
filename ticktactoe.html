@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic Tac Toe</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<h1>❌⭕ Tic Tac Toe</h1>
+
+<div id="board"></div>
+
+<h2 id="message"></h2>
+
+<script>
+
+let board = ["","","","","","","","",""];
+let player = "❌";
+
+const boardDiv = document.getElementById("board");
+const message = document.getElementById("message");
+
+function createBoard(){
+
+boardDiv.innerHTML="";
+
+board.forEach((cell,index)=>{
+
+let box=document.createElement("button");
+
+box.className="cell";
+box.innerHTML=cell;
+
+box.onclick=function(){
+
+if(board[index]==""){
+board[index]=player;
+
+if(player=="❌"){
+player="⭕";
+}else{
+player="❌";
+}
+
+checkWinner();
+createBoard();
+
+}
+
+};
+
+boardDiv.appendChild(box);
+
+});
+
+}
+
+function checkWinner(){
+
+let wins=[
+[0,1,2],[3,4,5],[6,7,8],
+[0,3,6],[1,4,7],[2,5,8],
+[0,4,8],[2,4,6]
+];
+
+wins.forEach(line=>{
+
+let a=line[0];
+let b=line[1];
+let c=line[2];
+
+if(board[a] && board[a]==board[b] && board[a]==board[c]){
+message.innerHTML=board[a]+" Wins! 🎉";
+}
+
+});
+
+}
+
+createBoard();
+
+</script>
+
+</body>
+</html>
